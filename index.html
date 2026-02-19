@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <title>Haldiram AR Experience</title>
+    <title>Haldiram AR Experience - Stable</title>
     
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.0.0/dist/aframe-extras.min.js"></script>
@@ -121,23 +121,23 @@
     <a href="https://www.haldirams.com/?srsltid=AfmBOorNrebUrW3WH3dQP5O67TGTZZMb5vApY1MI6Vy1td8TluPaNb0i" target="_blank" id="buy-now-cta"></a>
 
     <a-scene 
-        mindar-image="imageTargetSrc: https://raw.githubusercontent.com/Mahesh2710/ARData/main/target/haldiram_new.mind; autoStart: false; uiScanning: #none;" 
+        mindar-image="imageTargetSrc: https://raw.githubusercontent.com/Mahesh2710/ARData/main/target/haldiram_new.mind; autoStart: false; uiScanning: #none; filterMinCF: 0.0001; filterBeta: 0.001; missTolerance: 10; warmupTolerance: 5;" 
         device-orientation-permission-ui="enabled: false"
-        vr-mode-ui="enabled: false">
+        vr-mode-ui="enabled: false"
+        renderer="antialias: true; colorManagement: true; precision: medium;">
         
         <a-assets>
             <video id="myVideo" src="https://raw.githubusercontent.com/Mahesh2710/ARData/main/video/Gujhiya.mp4" 
-                   loop="true" crossorigin="anonymous" playsinline webkit-playsinline preload="auto"></video>
+                    loop="true" crossorigin="anonymous" playsinline webkit-playsinline preload="auto"></video>
         </a-assets>
 
         <a-camera position="0 0 0" look-controls="enabled: false" wasd-controls-enabled="false"></a-camera>
 
         <a-entity mindar-image-target="targetIndex: 0" id="target-entity">
-            
             <a-text 
-                value="Haldiram" 
+                value="HALDIRAM" 
                 align="center" 
-                color="#FFFFFF" 
+                color="#FFFFF" 
                 width="5" 
                 position="0 1.2 0.2"
                 font="roboto">
@@ -186,7 +186,6 @@
         };
 
         playBtn.addEventListener('click', () => {
-            // Unmute and pre-play for iOS audio support
             video.play().then(() => {
                 video.pause();
                 video.currentTime = 0;
