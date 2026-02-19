@@ -231,6 +231,20 @@
             video.pause();
             document.querySelector('a-assets').appendChild(video);
         });
+
+        // --- NEW REDIRECTION LOGIC ---
+        buyNowBtn.addEventListener('click', () => {
+            video.pause(); // Pause the video immediately
+            videoContainer.style.display = 'none'; // Hide the sticky UI
+            isStickyEnabled = false; // Disable sticky mode so it doesn't pop up again
+        });
+
+        // Fail-safe: Pause if user hides the tab or minimizes the app
+        document.addEventListener("visibilitychange", () => {
+            if (document.hidden) {
+                video.pause();
+            }
+        });
     </script>
 </body>
 </html>
